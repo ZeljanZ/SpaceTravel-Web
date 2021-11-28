@@ -79,7 +79,8 @@ body {
   display: grid;
   -ms-grid-rows: min-content 1fr;
       grid-template-rows: -webkit-min-content 1fr;
-      grid-template-rows: min-content 1fr; }
+      grid-template-rows: min-content 1fr;
+  overflow-x: hidden; }
 
 /* make Images easier to work with */
 img,
@@ -138,7 +139,6 @@ select {
 
 .grid-container {
   text-align: center;
-  border: 5px solid limegreen;
   display: -ms-grid;
   display: grid;
   place-items: center; }
@@ -159,7 +159,7 @@ select {
     -ms-grid-column: 3;
     grid-column: 3; }
   .grid-container--home {
-    padding-bottom: 7rem;
+    padding-bottom: 15rem;
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: end; } }
@@ -293,27 +293,31 @@ select {
   -webkit-transform: scale(1.5);
           transform: scale(1.5); }
 
+/* primary-header */
+.logo {
+  margin: 2rem clamp(1.5rem, 5vw, 3.5rem); }
+
+.primary-header {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
 .primary-navigation {
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
   --underline-gap: 2rem;
-  background: black;
   list-style: none;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  background: rgba(0, 0, 0, 0.95); }
 
-@media (max-width: 35rem) {
+@supports ((-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem))) {
   .primary-navigation {
-    --underline-gap: 2rem;
-    position: fixed;
-    inset: 0 0 0 30%;
-    z-index: 1000;
-    background: black;
-    list-style: none;
-    padding: 9rem 2rem;
-    margin: 0;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; } }
+    background: rgba(0, 0, 0, 0.05);
+    -webkit-backdrop-filter: blur(1.5rem);
+            backdrop-filter: blur(1.5rem); } }
 
 .primary-navigation a {
   text-decoration: none; }
@@ -321,6 +325,56 @@ select {
 .primary-navigation a > span {
   font-weight: 700;
   margin-right: .5rem; }
+
+.mobile-nav-toggle {
+  display: none; }
+
+@media (max-width: 35rem) {
+  .primary-navigation {
+    --underline-gap: .5rem;
+    position: fixed;
+    inset: 0 0 0 30%;
+    z-index: 1000;
+    list-style: none;
+    padding: 9rem 2rem;
+    margin: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out; }
+  .primary-navigation.underline-indicators > .active {
+    border: 0; }
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    border: 0;
+    background-image: url(/assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1.5rem;
+    aspect-ratio: 1; }
+  .mobile-nav-toggle:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 5px; }
+  .primary-navigation[data-visible="true"] {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  .mobile-nav-toggle[aria-expanded="false"] {
+    background-image: url(/assets/shared/icon-close.svg); } }
+
+@media (min-width: 35em) and (max-width: 45em) {
+  .primary-navigation {
+    padding-inline: 3rem; }
+  .primary-navigation a > span {
+    display: none; } }
 
 .underline-indicators > * {
   border: 0;
