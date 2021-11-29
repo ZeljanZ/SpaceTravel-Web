@@ -311,11 +311,11 @@ select {
   list-style: none;
   padding: 0;
   margin: 0;
-  background: rgba(0, 0, 0, 0.95); }
+  background: rgba(255, 255, 255, 0.95); }
 
 @supports ((-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem))) {
   .primary-navigation {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     -webkit-backdrop-filter: blur(1.5rem);
             backdrop-filter: blur(1.5rem); } }
 
@@ -370,11 +370,33 @@ select {
   .mobile-nav-toggle[aria-expanded="false"] {
     background-image: url(/assets/shared/icon-close.svg); } }
 
-@media (min-width: 35em) and (max-width: 45em) {
+@media (min-width: 35em) {
   .primary-navigation {
-    padding-inline: 3rem; }
+    padding-inline: clamp(3rem, 5vw, 7rem); } }
+
+@media (min-width: 35em) and (max-width: 44em) {
   .primary-navigation a > span {
     display: none; } }
+
+@media (min-width: 45em) {
+  .primary-header::after {
+    content: '';
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-right: -2rem;
+    background: rgba(255, 255, 255, 0.25); }
+  nav {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2; }
+  .primary-navigation {
+    margin-block: 2rem;
+    padding-inline: 7rem; } }
 
 .underline-indicators > * {
   border: 0;
