@@ -161,7 +161,9 @@ select{
     margin-top: var(--flow-space, 1rem);
     // outline: 1px solid red;
 }
-
+.flow-space--small{
+    --flow-space: .75rem
+}
 .container{
     padding-inline: 2em;
     margin-inline: auto;
@@ -388,7 +390,8 @@ select{
     border: 0;
     cursor: pointer;
     border-bottom: .2rem solid rgba(255, 255, 255, 0);;
-    padding: var(--underline-gap, 1rem) 0;
+    padding: var(--underline-gap, .5rem) 0;
+    background-color: transparent;
 }
 .underline-indicators > *:hover,
 .underline-indicators > *:focus{
@@ -429,17 +432,49 @@ body{
 }
 /* home */
 .home{
-    background-image: url(/assets/home/background-home-mobile.jpg);
+    background-image: url(../assets/home/background-home-mobile.jpg);
 }
 @media (min-width: 35rem) {
     .home{
         background-position: center center;
-        background-image: url(/assets/home/background-home-tablet.jpg);
+        background-image: url(../assets/home/background-home-tablet.jpg);
     }
 }
 @media (min-width: 45rem) {
     .home{
-        background-image: url(/assets/home/background-home-desktop.jpg);
+        background-image: url(../assets/home/background-home-desktop.jpg);
+    }
+}
+
+/* destination */
+.destination{
+    background-image: url(../assets/destination/background-destination-mobile.jpg);
+}
+@media (min-width: 35rem) {
+    .destination{
+        background-position: center center;
+        background-image: url(../assets/destination/background-destination-tablet.jpg);
+    }
+}
+@media (min-width: 45rem) {
+    .destination{
+        background-image: url(../assets/destination/background-destination-desktop.jpg);
+    }
+}
+
+/* crew */
+.crew{
+    background-image: url(../assets/crew/background-crew-mobile.jpg);
+}
+@media (min-width: 35rem) {
+    .crew{
+        background-position: center center;
+        background-image: url(../assets/crew/background-crew-tablet.jpg);
+    }
+}
+@media (min-width: 45rem) {
+    .crew{
+        background-image: url(../assets/crew/background-crew-desktop.jpg)!important;
     }
 }
 
@@ -476,7 +511,7 @@ body{
 }
 
 .grid-container--destination{
-    img{
+    picture{
         grid-area: image;
         max-width: 60%;
     }
@@ -511,7 +546,7 @@ body{
 
 
 .grid-container--crew{
-    img{
+    picture{
         grid-area: image;
         max-width: 60%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -521,6 +556,11 @@ body{
     }
     .crew-details{
         grid-area: content;
+    }
+    .crew-details{
+        h2{
+            opacity: .5;
+        }
     }
 }
 
@@ -572,7 +612,7 @@ body{
     }
     .grid-container--destination,
     .grid-container--crew{
-        img{
+        picture{
             
             max-width: 90%;
         }
@@ -593,8 +633,12 @@ body{
         .dot-indicators{
             justify-self: start;
         }
-        img{
+        picture{
             align-self: end;
         }
     }
+}
+
+[role="tab"]:focus{
+    color: limegreen;
 }
