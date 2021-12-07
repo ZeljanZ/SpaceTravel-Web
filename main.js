@@ -23,7 +23,7 @@ function changeTabFocus(e) {
     // if the right key is pushed, move to the next tab on the right
     if(e.keyCode === keydownRight){
         tabFocus++;
-        console.log(tabs.length);
+
         if(tabFocus >=tabs.length){
             tabFocus = 0;
         }
@@ -43,15 +43,50 @@ function changeTabFocus(e) {
 function changeTabPanel(e) {
     const targetTab = e.target;
     const targetPanel = targetTab.getAttribute("aria-controls");
+    const targetImage = targetTab.getAttribute("data-image")
 
     const tabContainer = targetTab.parentNode;
     const mainContainer = tabContainer.parentNode;
+
+    tabContainer
+        .querySelector('[aria-selected="true"]')
+        .setAttribute("aria-selected", false);
+
+    targetTab.setAttribute("aria-selected", true);
+
+    // hideContent(mainContainer, '[role="tabpanel"]');
+    // showContent(mainContainer, [`#${targetPanel}`]);
+
+    /** this is the same code doing like a function hideContent **/
 
     mainContainer
         .querySelectorAll('[role="tabpanel"]')
         .forEach((panel) => panel.setAttribute("hidden", true));
 
+    /** this is the same code doing like a function showContent **/
+
     mainContainer.querySelector([`#${targetPanel}`]).removeAttribute('hidden');
 
-    // console.log(mainContainer);
+
+    // hideContent(mainContainer, '.div');
+    // showContent(mainContainer, [`#${targetImage}`]);
+
+    mainContainer
+        .querySelectorAll('.div')
+        .forEach((div) => div.setAttribute("hidden", true));
+
+    mainContainer.querySelector([`#${targetImage}`]).removeAttribute('hidden');
+
 }
+
+// function hideContent(parent, content){
+//     parent
+//         .querySelectorAll(content)
+//         .forEach((item) => item.setAttribute("hidden", true));
+// }
+
+// function showContent(parent, content){
+//     parent
+//     .querySelector(content).removeAttribute('hidden');
+
+// }

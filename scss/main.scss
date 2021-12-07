@@ -511,7 +511,7 @@ body{
 }
 
 .grid-container--destination{
-    picture{
+    .div{
         grid-area: image;
         max-width: 60%;
     }
@@ -546,7 +546,7 @@ body{
 
 
 .grid-container--crew{
-    picture{
+    div{
         grid-area: image;
         max-width: 60%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -612,7 +612,7 @@ body{
     }
     .grid-container--destination,
     .grid-container--crew{
-        picture{
+        div{
             
             max-width: 90%;
         }
@@ -633,7 +633,7 @@ body{
         .dot-indicators{
             justify-self: start;
         }
-        picture{
+        div{
             align-self: end;
         }
     }
