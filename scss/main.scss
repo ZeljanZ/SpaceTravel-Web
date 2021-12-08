@@ -511,9 +511,13 @@ body{
 }
 
 .grid-container--destination{
+    
     .div{
+        // image 
         grid-area: image;
         max-width: 60%;
+        align-self: start;
+
     }
     .tab-list{
         grid-area: tabs;
@@ -547,6 +551,7 @@ body{
 
 .grid-container--crew{
     div{
+        // image 
         grid-area: image;
         max-width: 60%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -610,8 +615,7 @@ body{
             '. image tabs .'
             '. image content .';
     }
-    .grid-container--destination,
-    .grid-container--crew{
+    .grid-container--destination{
         div{
             
             max-width: 90%;
@@ -622,19 +626,19 @@ body{
         justify-content: start;
     }
     .grid-container--crew{
+        grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0,20rem) minmax(1rem, 1fr);
+        justify-items: start;
         grid-template-areas: 
             '. title title .'
             '. content image .'
-            '. tabs image .'
             '. tabs image .';
     }
     .grid-container--crew{
-
-        .dot-indicators{
-            justify-self: start;
-        }
+        // image 
         div{
-            align-self: end;
+            grid-column: span 2;
+            // align-self: end;
+            max-width: 90%;
         }
     }
 }

@@ -54,39 +54,39 @@ function changeTabPanel(e) {
 
     targetTab.setAttribute("aria-selected", true);
 
-    // hideContent(mainContainer, '[role="tabpanel"]');
-    // showContent(mainContainer, [`#${targetPanel}`]);
+    hideContent(mainContainer, '[role="tabpanel"]');
+    showContent(mainContainer, [`#${targetPanel}`]);
 
     /** this is the same code doing like a function hideContent **/
 
-    mainContainer
-        .querySelectorAll('[role="tabpanel"]')
-        .forEach((panel) => panel.setAttribute("hidden", true));
+    // mainContainer
+    //     .querySelectorAll('[role="tabpanel"]')
+    //     .forEach((panel) => panel.setAttribute("hidden", true));
 
     /** this is the same code doing like a function showContent **/
 
-    mainContainer.querySelector([`#${targetPanel}`]).removeAttribute('hidden');
+    // mainContainer.querySelector([`#${targetPanel}`]).removeAttribute('hidden');
 
 
-    // hideContent(mainContainer, '.div');
-    // showContent(mainContainer, [`#${targetImage}`]);
+    hideContent(mainContainer, '.div');
+    showContent(mainContainer, [`#${targetImage}`]);
 
-    mainContainer
-        .querySelectorAll('.div')
-        .forEach((div) => div.setAttribute("hidden", true));
+    // mainContainer
+    //     .querySelectorAll('.div')
+    //     .forEach((div) => div.setAttribute("hidden", true));
 
-    mainContainer.querySelector([`#${targetImage}`]).removeAttribute('hidden');
+    // mainContainer.querySelector([`#${targetImage}`]).removeAttribute('hidden');
 
 }
 
-// function hideContent(parent, content){
-//     parent
-//         .querySelectorAll(content)
-//         .forEach((item) => item.setAttribute("hidden", true));
-// }
+function hideContent(parent, content){
+    parent
+        .querySelectorAll(content)
+        .forEach((item) => item.setAttribute("hidden", true));
+}
 
-// function showContent(parent, content){
-//     parent
-//     .querySelector(content).removeAttribute('hidden');
+function showContent(parent, content){
+    parent
+    .querySelector(content).removeAttribute('hidden');
 
-// }
+}
