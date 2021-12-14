@@ -33,13 +33,13 @@
 
     <h1 class="numbered-title padding-left"><span aria-hidden="true">03</span> Space launch 101</h1>
 
-    <div class="dot-indicators-tech flex" role="tablist" aria-label="destination">
-      <button aria-selected="true"  role="tabs" aria-controls="comander-tab" tabindex="0" data-image="comander-img"><span class="sr-only">The commander</span>1</button>
-      <button aria-selected="false" role="tabs" aria-controls="specialist-tab" tabindex="-1" data-image="specialist-img"><span class="sr-only">The mission specialist</span>2</button>
-      <button aria-selected="false" role="tabs" aria-controls="pilot-tab" tabindex="-1" data-image="pilot-img"><span class="sr-only">The Pilot</span>3</button>
+    <div class="dot-indicators-tech flex" role="tablist" aria-label="terminology">
+      <button aria-selected="true"  role="tab" aria-controls="vehicle-tab" tabindex="0" data-image="vehicle-img"><span class="sr-only">Launch vehicle</span>1</button>
+      <button aria-selected="false" role="tab" aria-controls="capsule-tab" tabindex="-1" data-image="capsule-img"><span class="sr-only">Space Capsule</span>2</button>
+      <button aria-selected="false" role="tab" aria-controls="spaceport-tab" tabindex="-1" data-image="spaceport-img"><span class="sr-only">Spaceport</span>3</button>
     </div>
 
-    <article class="tech-details flow" id="comander-tab" tabindex="0" role="tabpanel">
+    <article class="tech-details flow" id="vehicle-tab" tabindex="0" role="tabpanel">
       <header class="flow flow-space--small">
         <h2 class="fs-500 ff-serif uppercase text-light">The terminology...</h2>
         <p class="fs-700 uppercase ff-serif">Launch vehicle</p> 
@@ -51,9 +51,42 @@
         it's quite an awe-inspiring sight on the launch pad!</p>
     </article>
 
-    <div class="div" id="comander-img" >
+    <article class="tech-details flow" id="capsule-tab" tabindex="0" role="tabpanel" hidden>
+      <header class="flow flow-space--small">
+        <h2 class="fs-500 ff-serif uppercase text-light">The terminology...</h2>
+        <p class="fs-700 uppercase ff-serif">Space Capsule</p> 
+      </header>
+
+      <p>A space capsule or carrier rocket is a rocket-propelled vehicle used to carry a 
+        payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
+        WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 
+        it's quite an awe-inspiring sight on the launch pad!</p>
+    </article>
+
+    <article class="tech-details flow" id="spaceport-tab" tabindex="0" role="tabpanel" hidden>
+      <header class="flow flow-space--small">
+        <h2 class="fs-500 ff-serif uppercase text-light">The terminology...</h2>
+        <p class="fs-700 uppercase ff-serif">Spaceport</p> 
+      </header>
+
+      <p>A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
+        by analogy to the seaport for ships or airport for aircraft. Based in the 
+        famous Cape Canaveral, our spaceport is ideally situated to take advantage 
+        of the Earth’s rotation for launch.</p>
+    </article>
+
+
+    <div class="div" id="vehicle-img" >
       <img class="landscape-img" src="assets/technology/image-launch-vehicle-landscape.jpg" alt="launch vehicle">
       <img class="portrait-img" src="assets/technology/image-launch-vehicle-portrait.jpg" alt="launch vehicle">
+    </div>
+    <div class="div" id="capsule-img" hidden>
+      <img class="landscape-img" src="assets/technology/image-space-capsule-landscape.jpg" alt="space capsule">
+      <img class="portrait-img" src="assets/technology/image-space-capsule-portrait.jpg" alt="space capsule">
+    </div>
+    <div class="div" id="spaceport-img" hidden>
+      <img class="landscape-img" src="assets/technology/image-spaceport-landscape.jpg" alt="spaceport">
+      <img class="portrait-img" src="assets/technology/image-spaceport-portrait.jpg" alt="spaceport">
     </div>
 
   </main>
